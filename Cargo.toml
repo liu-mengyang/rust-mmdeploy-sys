@@ -13,4 +13,4 @@ keywords = ["mmdeploy", "deployment"]
 [dependencies]
 
 [build-dependencies]
-bindgen = {}
+bindgen = "0.60.1"
