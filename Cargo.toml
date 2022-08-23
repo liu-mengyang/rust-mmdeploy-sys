@@ -2,6 +2,10 @@
 name = "mmdeploy-sys"
 version = "0.1.0"
 edition = "2021"
+description = "FFI bindings to MMDeploy"
+repository = "https://github.com/liu-mengyang/rust-mmdeploy-sys"
+keywords = ["model deployment", "mmdeploy", "deep learning"]
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
