@@ -1,6 +1,6 @@
 [package]
 name = "mmdeploy-sys"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 license = "Apache-2.0"
 description = "FFI bindings to MMDeploy"
@@ -9,6 +9,10 @@ keywords = ["mmdeploy", "deployment"]
 
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+static = []
+build = ["static"]
 
 [dependencies]
 
