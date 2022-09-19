@@ -55,6 +55,27 @@ impl mmdeploy_detection_t {
     }
 }
 
+// segmentor
+impl mmdeploy_segmentor {
+    pub fn new() -> mmdeploy_segmentor {
+        mmdeploy_segmentor {
+            _unused: [1; 0],
+        }
+    }
+}
+
+impl mmdeploy_segmentation_t {
+    pub fn new() -> mmdeploy_segmentation_t {
+        mmdeploy_segmentation_t {
+            height: 0,
+            width: 0,
+            classes: 0,
+            mask: Box::into_raw(Box::new(0)),
+        }
+    }
+}
+
+
 #[cfg(test)]
 mod tests {
     #[test]
