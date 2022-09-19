@@ -3,6 +3,26 @@ use std::ffi::CString;
 
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
+
+// classifier
+impl mmdeploy_classifier {
+    pub fn new() -> mmdeploy_classifier {
+        mmdeploy_classifier {
+            _unused: [1; 0],
+        }
+    }
+}
+
+impl mmdeploy_classification_t {
+    pub fn new() -> mmdeploy_classification_t {
+        mmdeploy_classification_t {
+            label_id: 0,
+            score: 0.0,
+        }
+    }
+}
+
+// detector
 impl mmdeploy_detector {
     pub fn new() -> mmdeploy_detector {
         mmdeploy_detector {
