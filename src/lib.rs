@@ -75,6 +75,26 @@ impl mmdeploy_segmentation_t {
     }
 }
 
+impl mmdeploy_pose_detector {
+    pub fn new() -> mmdeploy_pose_detector {
+        mmdeploy_pose_detector {
+            _unused: [1; 0],
+        }
+    }
+}
+
+impl mmdeploy_pose_detection_t {
+    pub fn new() -> mmdeploy_pose_detection_t {
+        let point = mmdeploy_point_t {x: 0.0, y: 0.0};
+
+        mmdeploy_pose_detection_t {
+            point: Box::into_raw(Box::new(point)),
+            score: Box::into_raw(Box::new(0.0)),
+            length: 0,
+        }
+    }
+}
+
 
 #[cfg(test)]
 mod tests {
