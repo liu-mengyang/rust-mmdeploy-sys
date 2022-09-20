@@ -75,6 +75,7 @@ impl mmdeploy_segmentation_t {
     }
 }
 
+// pose detector
 impl mmdeploy_pose_detector {
     pub fn new() -> mmdeploy_pose_detector {
         mmdeploy_pose_detector {
@@ -91,6 +92,26 @@ impl mmdeploy_pose_detection_t {
             point: Box::into_raw(Box::new(point)),
             score: Box::into_raw(Box::new(0.0)),
             length: 0,
+        }
+    }
+}
+
+// rotated detector
+impl mmdeploy_rotated_detector {
+    pub fn new() -> mmdeploy_rotated_detector {
+        mmdeploy_rotated_detector {
+            _unused: [1; 0],
+        }
+    }
+}
+
+impl mmdeploy_rotated_detection_t {
+    pub fn new() -> mmdeploy_rotated_detection_t {
+
+        mmdeploy_rotated_detection_t {
+            label_id: 0,
+            score: 0.0,
+            rbbox: [0.0, 0.0, 0.0, 0.0, 0.0],
         }
     }
 }
