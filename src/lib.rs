@@ -116,6 +116,48 @@ impl mmdeploy_rotated_detection_t {
     }
 }
 
+// text detector
+impl mmdeploy_text_detector {
+    pub fn new() -> mmdeploy_text_detector {
+        mmdeploy_text_detector {
+            _unused: [1; 0],
+        }
+    }
+}
+
+impl mmdeploy_text_detection_t {
+    pub fn new() -> mmdeploy_text_detection_t {
+        let point1 = mmdeploy_point_t {x: 0.0, y: 0.0};
+        let point2 = mmdeploy_point_t {x: 0.0, y: 0.0};
+        let point3 = mmdeploy_point_t {x: 0.0, y: 0.0};
+        let point4 = mmdeploy_point_t {x: 0.0, y: 0.0};
+
+        mmdeploy_text_detection_t {
+            bbox: [point1, point2, point3, point4],
+            score: 0.0,
+        }
+    }
+}
+
+// text recoginizer
+impl mmdeploy_text_recognizer {
+    pub fn new() -> mmdeploy_text_recognizer {
+        mmdeploy_text_recognizer {
+            _unused: [1; 0],
+        }
+    }
+}
+
+impl mmdeploy_text_recognition_t {
+    pub fn new() -> mmdeploy_text_recognition_t {
+        mmdeploy_text_recognition_t {
+            text: &mut ('0' as c_char),
+            score: Box::into_raw(Box::new(0.0)),
+            length: 0,
+        }
+    }
+}
+
 
 #[cfg(test)]
 mod tests {
