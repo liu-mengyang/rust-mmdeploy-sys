@@ -127,10 +127,10 @@ impl mmdeploy_text_detector {
 
 impl mmdeploy_text_detection_t {
     pub fn new() -> mmdeploy_text_detection_t {
-        let point1 = mmdeploy_point_t {x: 0.0, y: 0.0};
-        let point2 = mmdeploy_point_t {x: 0.0, y: 0.0};
-        let point3 = mmdeploy_point_t {x: 0.0, y: 0.0};
-        let point4 = mmdeploy_point_t {x: 0.0, y: 0.0};
+        let mut point1 = mmdeploy_point_t {x: 0.0, y: 0.0};
+        let mut point2 = mmdeploy_point_t {x: 0.0, y: 0.0};
+        let mut point3 = mmdeploy_point_t {x: 0.0, y: 0.0};
+        let mut point4 = mmdeploy_point_t {x: 0.0, y: 0.0};
 
         mmdeploy_text_detection_t {
             bbox: [point1, point2, point3, point4],
