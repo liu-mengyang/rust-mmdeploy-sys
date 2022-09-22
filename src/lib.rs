@@ -158,6 +158,28 @@ impl mmdeploy_text_recognition_t {
     }
 }
 
+// restorer
+impl mmdeploy_restorer {
+    pub fn new() -> mmdeploy_restorer {
+        mmdeploy_restorer {
+            _unused: [1; 0],
+        }
+    }
+}
+
+impl mmdeploy_mat_t {
+    pub fn new() -> mmdeploy_mat_t {
+        mmdeploy_mat_t {
+            data: Box::into_raw(Box::new(0 as u8)),
+            height: 0,
+            width: 0,
+            channel: 0,
+            format: 0,
+            type_: 0,
+        }
+    }
+}
+
 
 #[cfg(test)]
 mod tests {
