@@ -22,7 +22,7 @@ apt install llvm-dev libclang-dev clang
 wget https://github.com/open-mmlab/mmdeploy/releases/download/v0.8.0/mmdeploy-0.8.0-linux-x86_64-onnxruntime1.8.1.tar.gz
 tar -zxvf mmdeploy-0.8.0-linux-x86_64-onnxruntime1.8.1.tar.gz
 cd mmdeploy-0.8.0-linux-x86_64-onnxruntime1.8.1.tar.gz
-export MMDEPLOY_DIR=$(pwd)
+export MMDEPLOY_DIR=$(pwd)/sdk
 ```
 
 ## Build

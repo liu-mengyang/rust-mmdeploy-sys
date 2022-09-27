@@ -61,10 +61,10 @@ fn main() {
         let mmdeploy_dir = PathBuf::from(mmdeploy_dir);
         println!(
             "cargo:rustc-link-search=native={}",
-            mmdeploy_dir.join("sdk").join("lib").to_string_lossy()
+            mmdeploy_dir.join("lib").to_string_lossy()
         );
         link_to_libraries();
-        vec![mmdeploy_dir.join("sdk").join("include").join("mmdeploy")]
+        vec![mmdeploy_dir.join("include").join("mmdeploy")]
     } else {
         // TODO: Support pkg-config
         println!("Fallback to pkg-config");
