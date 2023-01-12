@@ -176,6 +176,7 @@ impl mmdeploy_mat_t {
             channel: 0,
             format: 0,
             type_: 0,
+            device:mmdeploy_device_t,
         }
     }
 }
