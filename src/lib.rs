@@ -2,8 +2,6 @@ use std::os::raw::c_char;
 use std::ffi::CString;
 
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
-
-
 // classifier
 impl mmdeploy_classifier {
     pub fn new() -> mmdeploy_classifier {
@@ -71,6 +69,7 @@ impl mmdeploy_segmentation_t {
             width: 0,
             classes: 0,
             mask: Box::into_raw(Box::new(0)),
+            score: Box::into_raw(Box::new(0.0)),
         }
     }
 }
@@ -176,6 +175,7 @@ impl mmdeploy_mat_t {
             channel: 0,
             format: 0,
             type_: 0,
+            device: std::ptr::null_mut(),
         }
     }
 }
