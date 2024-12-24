@@ -2,7 +2,7 @@
 
 MMDeploy bindings for Rust.
 
-This repo is a low-level MMDeploy abstraction, you can use [rust-mmdeploy](https://github.com/liu-mengyang/rust-mmdeploy) directly if you want to use MMDeploy in Rust. If it cannot cover your requirements, it's easy to build high-level abstraction based on this repo.
+This repo is a low-level MMDeploy>=1.0.0 abstraction, you can use [rust-mmdeploy](https://github.com/liu-mengyang/rust-mmdeploy) directly if you want to use MMDeploy in Rust. If it cannot cover your requirements, it's easy to build high-level abstraction based on this repo.
 
 ## Support matrix from MMDeploy
 
@@ -35,36 +35,30 @@ In order to successfully build this repo, you are supposed to install some pre-p
 apt install llvm-dev libclang-dev clang
 ```
 
-**Step 2.1. (For ONNXRuntime)** Download and install pre-built mmdeploy package and ONNXRuntime.
+**Step 2(Pre-built package).** Download and install pre-built mmdeploy package and ONNXRuntime.
 
 ```bash
-wget https://github.com/open-mmlab/mmdeploy/releases/download/v0.9.0/mmdeploy-0.9.0-linux-x86_64-onnxruntime1.8.1.tar.gz
-tar -zxvf mmdeploy-0.9.0-linux-x86_64-onnxruntime1.8.1.tar.gz
-cd mmdeploy-0.9.0-linux-x86_64-onnxruntime1.8.1
-export MMDEPLOY_DIR=$(pwd)/sdk
-
-wget https://github.com/microsoft/onnxruntime/releases/download/v1.8.1/onnxruntime-linux-x64-1.8.1.tgz
-tar -zxvf onnxruntime-linux-x64-1.8.1.tgz
-cd onnxruntime-linux-x64-1.8.1
-export ONNXRUNTIME_DIR=$(pwd)
+wget https://github.com/open-mmlab/mmdeploy/releases/download/v1.1.0/mmdeploy-1.1.0-linux-x86_64-cuda11.3.tar.gz
+tar -zxvf mmdeploy-1.1.0-linux-x86_64-cuda11.3.tar.gz
+cd mmdeploy-1.1.0-linux-x86_64-cuda11.3.tar.gz
+export MMDEPLOY_DIR=$(pwd)
+export ONNXRUNTIME_DIR=$(pwd)/thirdparty/onnxruntime
 export LD_LIBRARY_PATH=$ONNXRUNTIME_DIR/lib:$LD_LIBRARY_PATH
+export TENSORRT_DIR=$(pwd)/thirdparty/tensorrt
+export LD_LIBRARY_PATH=$TENSORRT_DIR/lib:$LD_LIBRARY_PATH
 ```
-
-**Step 2.2. (For TensorRT)** Download and install pre-built mmdeploy package and TensorRT.
-
+Then follow the guide in $MMDEPLOY_DIR/README.md to build the SDK.
+**Step 2(Build from source).**Follow the [official guide](https://mmdeploy.readthedocs.io/en/latest/01-how-to-build/build_from_source.html) to build MMDeploy SDK from source. If successfully built, you should have set TENSORRT_DIR, ONNXRUNTIME_DIR and LD_LIBRARY_PATH environment variables. Then
 ```bash
-wget https://github.com/open-mmlab/mmdeploy/releases/download/v0.9.0/mmdeploy-0.9.0-linux-x86_64-cuda11.1-tensorrt8.2.3.0.tar.gz
-tar -zxvf mmdeploy-0.9.0-linux-x86_64-cuda11.1-tensorrt8.2.3.0.tar.gz
-cd mmdeploy-0.9.0-linux-x86_64-cuda11.1-tensorrt8.2.3.0
-export MMDEPLOY_DIR=$(pwd)/sdk
+export MMDEPLOY_DIR=/path/to/mmdeploy/build/install
+export LD_LIBRARY_PATH=$MMDEPLOY_DIR/lib:$LD_LIBRARY_PATH
 ```
-
 ## Quick start
 
 Update your *Cargo.toml*
 
 ```toml
-mmdeploy-sys = "1.0.0"
+mmdeploy-sys = "1.1.0"
 ```
 
 ## Build

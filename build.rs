@@ -64,7 +64,7 @@ fn main() {
             mmdeploy_dir.join("lib").to_string_lossy()
         );
         link_to_libraries();
-        vec![mmdeploy_dir.join("include").join("mmdeploy")]
+        vec![mmdeploy_dir.join("include")]
     } else {
         // TODO: Support pkg-config
         println!("Fallback to pkg-config");
@@ -81,18 +81,18 @@ fn main() {
         .clang_args(clang_includes);
 
     builder = builder
-        .header(search_include(&include_path, "common.h"))
-        .header(search_include(&include_path, "model.h"))
-        .header(search_include(&include_path, "executor.h"))
-        .header(search_include(&include_path, "pipeline.h"))
-        .header(search_include(&include_path, "classifier.h"))
-        .header(search_include(&include_path, "detector.h"))
-        .header(search_include(&include_path, "segmentor.h"))
-        .header(search_include(&include_path, "pose_detector.h"))
-        .header(search_include(&include_path, "rotated_detector.h"))
-        .header(search_include(&include_path, "text_recognizer.h"))
-        .header(search_include(&include_path, "text_detector.h"))
-        .header(search_include(&include_path, "restorer.h"));
+        .header(search_include(&include_path, "mmdeploy/common.h"))
+        .header(search_include(&include_path, "mmdeploy/model.h"))
+        .header(search_include(&include_path, "mmdeploy/executor.h"))
+        .header(search_include(&include_path, "mmdeploy/pipeline.h"))
+        .header(search_include(&include_path, "mmdeploy/classifier.h"))
+        .header(search_include(&include_path, "mmdeploy/detector.h"))
+        .header(search_include(&include_path, "mmdeploy/segmentor.h"))
+        .header(search_include(&include_path, "mmdeploy/pose_detector.h"))
+        .header(search_include(&include_path, "mmdeploy/rotated_detector.h"))
+        .header(search_include(&include_path, "mmdeploy/text_recognizer.h"))
+        .header(search_include(&include_path, "mmdeploy/text_detector.h"))
+        .header(search_include(&include_path, "mmdeploy/restorer.h"));
 
     // generate builder
     let bindings = builder
