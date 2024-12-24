@@ -29,18 +29,29 @@ Uncertain (without test): ❓
 
 In order to successfully build this repo, you are supposed to install some pre-packages.
 
-**Step 1.** Install Clang required by `Bindgen`.
+**Step 0.** Install Rust if you don't have.
+
+```bash
+apt install curl
+curl https://sh.rustup.rs -sSf | sh
+```
+
+
+**Step 1.** Install Clang required by `Bindgen`
+
 
 ```bash
 apt install llvm-dev libclang-dev clang
 ```
 
-**Step 2(Pre-built package).** Download and install pre-built mmdeploy package and ONNXRuntime.
+**Step 2 (Pre-built package)**
+
+Download and install pre-built mmdeploy package and ONNXRuntime.
 
 ```bash
 wget https://github.com/open-mmlab/mmdeploy/releases/download/v1.1.0/mmdeploy-1.1.0-linux-x86_64-cuda11.3.tar.gz
 tar -zxvf mmdeploy-1.1.0-linux-x86_64-cuda11.3.tar.gz
-cd mmdeploy-1.1.0-linux-x86_64-cuda11.3.tar.gz
+cd mmdeploy-1.1.0-linux-x86_64-cuda11.3
 export MMDEPLOY_DIR=$(pwd)
 export ONNXRUNTIME_DIR=$(pwd)/thirdparty/onnxruntime
 export LD_LIBRARY_PATH=$ONNXRUNTIME_DIR/lib:$LD_LIBRARY_PATH
@@ -48,7 +59,10 @@ export TENSORRT_DIR=$(pwd)/thirdparty/tensorrt
 export LD_LIBRARY_PATH=$TENSORRT_DIR/lib:$LD_LIBRARY_PATH
 ```
 Then follow the guide in $MMDEPLOY_DIR/README.md to build the SDK.
-**Step 2(Build from source).**Follow the [official guide](https://mmdeploy.readthedocs.io/en/latest/01-how-to-build/build_from_source.html) to build MMDeploy SDK from source. If successfully built, you should have set TENSORRT_DIR, ONNXRUNTIME_DIR and LD_LIBRARY_PATH environment variables. Then
+
+**Step 2 (Build from source)**
+
+Follow the [official guide](https://mmdeploy.readthedocs.io/en/latest/01-how-to-build/build_from_source.html) to build MMDeploy SDK from source. If successfully built, you should have set TENSORRT_DIR, ONNXRUNTIME_DIR and LD_LIBRARY_PATH environment variables. Then
 ```bash
 export MMDEPLOY_DIR=/path/to/mmdeploy/build/install
 export LD_LIBRARY_PATH=$MMDEPLOY_DIR/lib:$LD_LIBRARY_PATH
